@@ -1,24 +1,28 @@
-# Pixel Perfect Replication
+HealthGuard AI
 
-Implement exactly the screenshot and nothing else
+HealthGuard AI is a healthcare monitoring dashboard designed to help organize patient information, monitor sample health readings, and highlight cases that may need attention.
 
-This project was built with [Lovable](https://lovable.dev).
+Features
 
-## Build with Lovable
+- Patient management and monitoring
+- Health-reading dashboards
+- Patient history
+- Review-status tracking
+- What-if simulation using illustrative demo data
+- Data-quality indicators and demo scenarios
+- Responsive interface with light and dark themes
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/94138660-06e2-45d4-8e92-8d57d6169b1c).
+Technology Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
 
-## Development
+Demo Notice
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+This project uses simulated data for demonstration purposes. It is not a medical diagnostic system and does not replace professional medical judgment.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+Getting Started
+
+Install the project's dependencies using the package manager supported by the project, then run the development server using the script defined in "package.json".
