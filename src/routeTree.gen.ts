@@ -10,33 +10,92 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DataStatusRouteImport } from './routes/data-status'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as MonitoringRouteImport } from './routes/monitoring'
+import { Route as PatientsRouteImport } from './routes/patients'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataStatusRoute = DataStatusRouteImport.update({
+  id: '/data-status',
+  path: '/data-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MonitoringRoute = MonitoringRouteImport.update({
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PatientsRoute = PatientsRouteImport.update({
+  id: '/patients',
+  path: '/patients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/data-status': typeof DataStatusRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/patients': typeof PatientsRoute
+  '/reviews': typeof ReviewsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/data-status': typeof DataStatusRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/patients': typeof PatientsRoute
+  '/reviews': typeof ReviewsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/data-status': typeof DataStatusRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/patients': typeof PatientsRoute
+  '/reviews': typeof ReviewsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/data-status' | '/history' | '/monitoring' | '/patients' | '/reviews'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    '/' | '/data-status' | '/history' | '/monitoring' | '/patients' | '/reviews'
+  id:
+    | '__root__'
+    | '/'
+    | '/data-status'
+    | '/history'
+    | '/monitoring'
+    | '/patients'
+    | '/reviews'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DataStatusRoute: typeof DataStatusRoute
+  HistoryRoute: typeof HistoryRoute
+  MonitoringRoute: typeof MonitoringRoute
+  PatientsRoute: typeof PatientsRoute
+  ReviewsRoute: typeof ReviewsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +107,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data-status': {
+      id: '/data-status'
+      path: '/data-status'
+      fullPath: '/data-status'
+      preLoaderRoute: typeof DataStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/monitoring': {
+      id: '/monitoring'
+      path: '/monitoring'
+      fullPath: '/monitoring'
+      preLoaderRoute: typeof MonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patients': {
+      id: '/patients'
+      path: '/patients'
+      fullPath: '/patients'
+      preLoaderRoute: typeof PatientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DataStatusRoute: DataStatusRoute,
+  HistoryRoute: HistoryRoute,
+  MonitoringRoute: MonitoringRoute,
+  PatientsRoute: PatientsRoute,
+  ReviewsRoute: ReviewsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
